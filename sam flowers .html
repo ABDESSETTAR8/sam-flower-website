@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Night Rose</title>
+
+<!-- Classic elegant serif font (not cursive) -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+html, body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  background: #000;
+  overflow: hidden;
+}
+
+/* CENTER */
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.25);
+}
+
+/* 🌟 TITLE (CLASSIC NON-CURSIVE LUXURY) */
+.title {
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-family: 'Cinzel', serif;
+  font-size: 58px;
+  letter-spacing: 4px;
+  color: #f5e6c8;
+
+  text-shadow:
+    0 0 10px rgba(255,255,255,0.6),
+    0 0 25px rgba(255,215,160,0.5);
+
+  opacity: 0;
+  animation: reveal 2.8s ease forwards;
+}
+
+/* smooth reveal (no typing, no cursor) */
+@keyframes reveal {
+  0% {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateX(-50%) translateY(10px);
+  }
+  60% {
+    opacity: 1;
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* 🌙 MOON */
+.moon {
+  position: absolute;
+  top: 5vh;
+  right: 5vw;
+  width: 160px;
+  height: 160px;
+  background: radial-gradient(circle at 30% 30%, #fff, #ddd 60%, #bbb);
+  border-radius: 50%;
+  box-shadow: 0 0 70px rgba(255,255,255,0.4);
+}
+
+.moon::before, .moon::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.15);
+}
+
+.moon::before { width: 28px; height: 28px; top: 40px; left: 50px; }
+.moon::after { width: 18px; height: 18px; top: 90px; left: 85px; }
+
+/* ⭐ STARS */
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle {
+  50% { opacity: 0.2; }
+  100% { opacity: 1; }
+}
+
+/* 🌹 ROSE */
+.rose-petals div {
+  position: absolute;
+  width: 45px;
+  height: 80px;
+  background: radial-gradient(circle at 30% 30%, #ff6b6b, #cc0000 60%, #7a0018);
+  box-shadow: 0 0 25px rgba(255,0,60,0.7);
+}
+
+.rose-petals div:nth-child(1) {
+  border-radius: 15px;
+  left: 20px;
+  top: -6px;
+}
+
+.rose-petals div:nth-child(2),
+.rose-petals div:nth-child(4) {
+  border-radius: 0 30px;
+  left: 0;
+  transform-origin: bottom right;
+}
+
+.rose-petals div:nth-child(3),
+.rose-petals div:nth-child(5) {
+  border-radius: 30px 0;
+  left: 40px;
+  transform-origin: bottom left;
+}
+
+.rose-petals div:nth-child(2) { animation: open2 3s forwards 1s; }
+.rose-petals div:nth-child(3) { animation: open3 3s forwards 1s; }
+
+@keyframes open2 {
+  100% { transform: rotate(-50deg); left: -25px; top: 150px; }
+}
+
+@keyframes open3 {
+  100% { transform: rotate(50deg); }
+}
+
+/* 🌿 STEM */
+.rose-leaves div:first-child {
+  width: 6px;
+  height: 200px;
+  background: linear-gradient(#0f8a0f, #064d06);
+  position: absolute;
+  left: 40px;
+  top: 70px;
+}
+
+.rose-leaves div:last-child {
+  width: 50px;
+  height: 25px;
+  background: radial-gradient(circle, #4cff6b, #1e7a33);
+  position: absolute;
+  top: 90px;
+  left: 10px;
+  border-radius: 100px;
+}
+
+/* 📱 RESPONSIVE */
+@media (max-width: 600px) {
+  .container { transform: translate(-50%, -50%) scale(0.7); }
+  .title { font-size: 38px; top: -90px; }
+  .moon { width: 110px; height: 110px; }
+}
+</style>
+</head>
+<body>
+
+<div class="moon"></div>
+
+<div class="star" style="top:10%;left:20%"></div>
+<div class="star" style="top:30%;left:70%"></div>
+<div class="star" style="top:50%;left:40%"></div>
+<div class="star" style="top:80%;left:60%"></div>
+<div class="star" style="top:20%;left:90%"></div>
+
+<div class="container">
+
+  <div class="title">Sadeen</div>
+
+  <div class="rose-leaves">
+    <div></div>
+    <div></div>
+  </div>
+
+  <div class="rose-petals">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+</div>
+
+</body>
+</html>
